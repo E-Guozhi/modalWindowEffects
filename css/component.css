@@ -16,6 +16,37 @@
 	border-radius: 3px;
 	margin: 0 auto;
 }
+.md-content h3{
+	margin: 0;
+	padding: .4em;
+	text-align: center;
+	font-size: 2.4em;
+	font-weight: 300;
+	opacity: 0.8;
+	background-color: rgba(0,0,0,.1);
+	border-radius: 3px 3px 0 0;
+}
+.md-content>div{
+	padding: 15px 40px 30px;
+	font-weight: 300;
+	font-size: 1.15em;
+}
+.md-content>div p{
+	margin: 0;
+	padding: 10px 0;
+}
+.md-content>div ul{
+	margin: 0;
+	padding: 0 0 30px 20px;
+}
+.md-content>div ul li{
+	padding: 5px;
+}
+.md-content button{
+	display: block;
+	margin: 0 auto;
+	font-size: 0.8em;
+}
 .md-show{
 	visibility: visible;
 }
@@ -25,8 +56,48 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-
+	visibility: hidden;
+	background-color: rgba(143,27,15,.8);
+	opacity: 0;
 }
+.md-show~.md-overlay{
+	opacity: 1;
+	transition: all 0.3s;
+	visibility: visible;
+}
+/*Individual modal styles with animations/transitions*/
+/*Effect 1: Fade in and scale up*/
+.md-effect-1 .md-content{
+	transform: scale(0.7);
+	opacity:0;
+	transition:all 0.3s;
+	
+}
+.md-show.md-effect-1 .md-content{
+	transform: scale(1);
+	opacity:1;
+}
+/*Effect 2:Slide from the right*/
+.md-effect-2 .md-content{
+	transition:all 0.3s cubic-bezier(0.25,0.5,0.5,0.9);
+	opacity: 0;
+	transform: translateX(20%) ;
+}
+.md-show.md-effect-2 .md-content{
+	opacity: 1;
+	transform: translateX(0);
+}
+/*Effect 3:Slide from the bottom*/
+.md-effect-3 .md-content{
+	transition:all 0.3s ;
+	opacity: 0;
+	transform: translateY(20%) ;
+}
+.md-show.md-effect-3 .md-content{
+	opacity: 1;
+	transform: translateY(0);
+}
+
 @media screen and (max-width: 32em) {
 	body {
 		font-size: 75%;
